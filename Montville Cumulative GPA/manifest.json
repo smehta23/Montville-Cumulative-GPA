@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Montville GPA Calculator",
+  "name": "Montville Cumulative GPA Calculator",
   "description": "This extension calculates the Cumulative GPA of a student across his/her years at Montville Township High School",
-  "version": "1.0",
+  "version": "1.21",
   "author": "Shyam Mehta",
   "permissions": [
     "activeTab"
