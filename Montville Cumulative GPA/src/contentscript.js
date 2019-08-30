@@ -15,7 +15,8 @@ $(document).ready(function () {
   let qualityPoints = [];
   let total_credits = [];
   let eachFinalGPA = [];
-  let sumOfGPAs = 0; 
+  let sumOfQualityPoints = 0; 
+  let sumOfTotalCredits = 0;
   let cumGPA = NaN; 
   let tempGrade = grades_and_classes[1].cells[1].innerText;
   while (tempGrade >= 9){
@@ -53,7 +54,7 @@ $(document).ready(function () {
 		  
 		}	
 		eachFinalGPA[year] = qualityPoints[year]/total_credits[year]
-		sumOfGPAs = sumOfGPAs + eachFinalGPA[year]		
+		//sumOfGPAs = sumOfGPAs + eachFinalGPA[year]		
 		grades_and_classes[x].cells[1].innerHTML = "<b> <mark> Final " 
 		+ parseInt(tempGrade) + "th Grade GPA: " + eachFinalGPA[year].toFixed(6) + "</mark> </b>";
 		grades_and_classes[x].cells[2].innerHTML = "";
@@ -62,7 +63,12 @@ $(document).ready(function () {
 		tempGrade = grades_and_classes[x].cells[1].innerText;
 		year = year + 1; 
 	}
-	cumGPA = sumOfGPAs/eachFinalGPA.length
+	var a = 0;
+	for (a = 0; a < qualityPoints.length; a++){
+    	sumOfQualityPoints = sumOfQualityPoints + qualityPoints[a];
+    	sumOfTotalCredits = sumOfTotalCredits + total_credits[a];
+	}
+	cumGPA = sumOfQualityPoints/sumOfTotalCredits;
 	let html = '<h1 id="gpa" style="color:#ffffff;background-color:#006400;height:10px;text-align:center;line-height:100px;width:50px;border-radius:25px;margin:0 auto;margin-top:10px;  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);"> GPA: ';
 	html += cumGPA.toFixed(3);
 	html += "</h1> <br>";
